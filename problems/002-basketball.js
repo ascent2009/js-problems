@@ -16,7 +16,22 @@
  * @returns {(number|undefined)}
  */
 function getWinner(points) {
-    return undefined;
+    let pointsToNumbers = points.map((p) =>
+        p.split("-").map((a) => parseInt(a))
+    );
+    let team1points = pointsToNumbers
+        .map((a) => a[0])
+        .reduce((acc, a) => acc + a);
+    let team2points = pointsToNumbers
+        .map((a) => a[1])
+        .reduce((acc, a) => acc + a);
+    if (team1points > team2points) {
+        return 1;
+    } else if (team1points < team2points) {
+        return 2;
+    } else {
+        return undefined;
+    }
 }
 
 module.exports = getWinner;
