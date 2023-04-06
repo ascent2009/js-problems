@@ -19,7 +19,10 @@
  * второй элемент – Катей, третий – Сережей
  */
 function computeOrizurus(total) {
-    return undefined;
+    let Pet = Math.round(total / 6);
+    let Serg = Pet;
+    let Kat = (Serg + Pet) * 2;
+    return [Pet, Kat, Serg];
 }
 
 module.exports = computeOrizurus;
