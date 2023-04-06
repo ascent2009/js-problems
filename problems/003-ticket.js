@@ -14,7 +14,18 @@
  * @returns {boolean}
  */
 function checkTicket(number) {
-    return undefined;
+    return (
+        number
+            .slice(0, 3)
+            .split("")
+            .map((n) => Number(n))
+            .reduce((acc, a) => acc + a) ===
+        number
+            .slice(-3)
+            .split("")
+            .map((n) => Number(n))
+            .reduce((acc, a) => acc + a)
+    );
 }
 
 module.exports = checkTicket;
