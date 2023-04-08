@@ -12,7 +12,13 @@
  * @returns {undefined|number}
  */
 function checkBusTour(bridges) {
-    return -1;
+    let busHeight = 512;
+    let lowBridgeIndex = bridges.findIndex((b) => b <= busHeight);
+
+    return (lowBridgeIndex =
+        lowBridgeIndex === -1
+            ? "Автобус успешно проедет по маршруту"
+            : lowBridgeIndex + 1);
 }
 
 module.exports = checkBusTour;
