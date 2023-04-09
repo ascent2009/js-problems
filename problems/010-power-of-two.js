@@ -12,7 +12,12 @@
  * @returns {number|undefined}
  */
 function getPower(n) {
-    return -1;
+    let pow = Math.log(n) / Math.log(2);
+    if (!Number.isInteger(pow)) {
+        return undefined;
+    } else {
+        return pow;
+    }
 }
 
 module.exports = getPower;
