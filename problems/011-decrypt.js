@@ -16,7 +16,18 @@
  * @returns {string}
  */
 function decrypt(secret) {
-    return undefined;
+    let letters = "abcdefghijklmnopqrstuvwxyz";
+    let shiftedLetters = letters.substring(1);
+    shiftedLetters += letters.substring(0, 1);
+    let shiftedString = "";
+    for (let i = 0; i < secret.length; i++) {
+        let idx = letters.indexOf(secret[i]);
+        shiftedString += shiftedLetters[idx];
+    }
+
+    return shiftedString.includes("undefined")
+        ? shiftedString.replaceAll("undefined", " ")
+        : shiftedString;
 }
 
 module.exports = decrypt;
