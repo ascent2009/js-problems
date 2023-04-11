@@ -15,7 +15,21 @@
  * @returns {boolean}
  */
 function anagram(x, y) {
-    return undefined;
+    if (!x || !y) {
+        return false;
+    }
+    return (
+        x
+            .toLowerCase()
+            .split("")
+            .sort((a, b) => (a < b ? 1 : -1))
+            .join() ===
+        y
+            .toLowerCase()
+            .split("")
+            .sort((a, b) => (a < b ? 1 : -1))
+            .join()
+    );
 }
 
 module.exports = anagram;
