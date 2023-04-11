@@ -13,7 +13,16 @@
  * @returns {undefined|number}
  */
 function census(list) {
-    return -1;
+    let arrAge = list.map((l) => l.age);
+    let maxAge = Math.max(...arrAge);
+    return (
+        list.findIndex((l) => {
+            if (l.gender === "Female") {
+                return undefined;
+            }
+            return l.age === maxAge && l.gender === "Male";
+        }) + 1
+    );
 }
 
 module.exports = census;
