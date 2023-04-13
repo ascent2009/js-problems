@@ -12,10 +12,12 @@
 function rle(value) {
     let uniqueValuesArr = [...new Set(value)];
     let shortenedString = uniqueValuesArr
-        .map((u) => [value.split("").filter((v) => v === u).length, u])
-        .flat()
-        .join("")
-        .replaceAll("1", "");
+        .map((u) =>
+            value.split("").filter((v) => v === u).length === 1
+                ? u
+                : value.split("").filter((v) => v === u).length + u
+        )
+        .join("");
 
     return value === "false" ? "false" : shortenedString;
 }
