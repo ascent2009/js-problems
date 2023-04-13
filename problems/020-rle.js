@@ -10,7 +10,14 @@
  * @returns {string}
  */
 function rle(value) {
-    return undefined;
+    let uniqueValuesArr = [...new Set(value)];
+    let shortenedString = uniqueValuesArr
+        .map((u) => [value.split("").filter((v) => v === u).length, u])
+        .flat()
+        .join("")
+        .replaceAll("1", "");
+
+    return value === "false" ? "false" : shortenedString;
 }
 
 module.exports = rle;
