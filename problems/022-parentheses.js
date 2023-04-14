@@ -16,7 +16,11 @@
  * @returns {boolean}
  */
 function parentheses(value) {
-    return undefined;
+    const reg = /\(\)/g;
+    while (reg.test(value)) {
+        value = value.replace(reg, "");
+    }
+    return value === "" ? false : !value;
 }
 
 module.exports = parentheses;
